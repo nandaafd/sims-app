@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/product');
 });
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('auth', [AuthController::class, 'login']);
+Route::post('logout', [AuthController::class, 'logout']);
+
+Route::middleware(['auth'])->group(function (){
+    Route::resource('produk', ProdukController::class);
+});
+
