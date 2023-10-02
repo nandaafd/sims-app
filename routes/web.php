@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function (){
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::resource('produk', ProdukController::class);
+    Route::resource('produk', ProdukController::class);  
+    Route::get('download', [ExportController::class, 'export']);
 });
 

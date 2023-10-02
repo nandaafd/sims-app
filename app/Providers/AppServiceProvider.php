@@ -11,7 +11,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        if (config('app.env') === 'local' && config('app.run_storage_link')) {
+            \Artisan::call('storage:link');
+        }
     }
 
     /**

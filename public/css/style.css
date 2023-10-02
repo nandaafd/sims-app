@@ -14,3 +14,11 @@
     color: #ccc;
     font-size: 100px;
 }
+.content{
+    margin-left: 80px;
+    margin-right: 40px;
+}
+h4{
+    color: red;
+    text-decoration: none;
+}

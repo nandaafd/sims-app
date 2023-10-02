@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportProduk;
 use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpKernel\HttpCache\Store;
 
 class ProdukController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $cariKategori = $request->kategori;
+        $cariProduk = $request->cari_produk;
         $kategori = Kategori::all();
-        $produk = Produk::paginate(10);
+        $queryProduk = Produk::query();
+        if ($cariKategori) {
+            $queryProduk->where('kategori_id',$cariKategori);
+        }
+        if ($cariProduk) {
+            $queryProduk->where('nama_produk',$cariProduk);
+        }
+        $produk = $queryProduk->paginate(10);
         return view('produk.index', compact('kategori', 'produk'));
     }
 

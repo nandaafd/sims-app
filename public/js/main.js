@@ -11,7 +11,7 @@ toggleButton.addEventListener('click', function() {
     if (sidebar.style.left === '0px') {
         // Jika terbuka, tutup sidebar
         sidebar.style.left = '-210px';
-        content.style.marginLeft = '60px';
+        content.style.marginLeft = '100px';
     } else {
         // Jika tertutup, buka sidebar
         sidebar.style.left = '0';
