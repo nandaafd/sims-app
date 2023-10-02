@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+#sidebar{
+    background-color: rgb(255, 0, 0);
+    height: 100vh;
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: -210px;
+    transition: left 0.3s;
+}
+.sidebar-menu ul li{
+    list-style-type: none;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+.sidebar-menu ul li a:hover{
+    color: yellow;
+}
+.sidebar-menu ul li button:hover{
+    color: yellow;
+}
+.sidebar-menu ul li a{
+    text-decoration: none;
+    color: white;
+}
+.sidebar-header #toggle{
+    margin-left: 85%;
+    color: white;
+    font-size: 25px;
+    border: none;
+}
+.sidebar-menu ul li a i{
+    margin-right: 10px;
+    font-size: 17px;
+}
+.sidebar-menu ul li button i{
+    margin-right: 10px;
+    font-size: 17px;
+}
+.sidebar-header{
+    text-align: left;
+    margin-left: 30px;
+}
+.sidebar-header h1{
+    font-weight: 600;
+    color: white;
+    font-family: 'Poppins','sans-serif';
+    font-size: 20px;
+}
+.sidebar-header h1 i{
+    color: white;
+}
+#btn-logout{
+    margin-left: -12px;
+    background-color: transparent;
+    font-size: 17px;
+    border: none;
+}
+@media screen and (max-width : 500px) {
+    #name-sidebar{
+        font-size: 12px;
+    }
+}
