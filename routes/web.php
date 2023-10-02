@@ -45,4 +45,9 @@ Route::get('seed-sec', function () {
     Artisan::call('db:seed --class=KategoriSeeder');
     return 'success';
 });
+Route::get('storage', function () {
+    Artisan::call('storage:link');
+    return 'success';
+});
+
 
