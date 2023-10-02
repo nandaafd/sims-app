@@ -22,3 +22,14 @@ h4{
     color: red;
     text-decoration: none;
 }
+#avatar{
+    max-width: 150px;
+    border-radius: 50%;
+}
+#avatar-card{
+    box-shadow: 5px 5px 5px 10px rgb(244, 244, 244);
+    max-width: 500px;
+}
+#avatar-card ul li{
+    list-style-type: none;
+}

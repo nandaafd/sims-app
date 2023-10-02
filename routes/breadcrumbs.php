@@ -14,3 +14,7 @@ Breadcrumbs::for('edit', function ($trail) {
     $trail->parent('produk');
     $trail->push('Ubah Data', url('produk/{id}/edit'));
 });
+Breadcrumbs::for('profile', function ($trail) {
+    $trail->parent('profile');
+    $trail->push('Profile', url('profile/{id}'));
+});

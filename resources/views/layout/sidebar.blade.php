@@ -6,8 +6,8 @@
 </div>
 <div class="sidebar-menu">
     <ul class="mt-5">
-        <li><a href=""><i class="bi bi-box-seam"></i> Produk</a></li>
-        <li><a href=""><i class="bi bi-person"></i> Profile</a></li>
+        <li><a href="{{url('produk')}}" class="{{ Request::is('produk*') ? 'active' : '' }}"><i class="bi bi-box-seam"></i> Produk</a></li>
+        <li><a href="{{route('profile.show',Auth::user()->id)}}" class="{{ Request::is('profile*') ? 'active' : '' }}"><i class="bi bi-person"></i> Profile</a></li>
         <li>
             <form action="{{url('/logout')}}" method="post">
                 @csrf @method('post')

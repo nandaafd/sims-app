@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-danger mt-3" id="btn-login">Masuk</button>
-                        <p class="mx-5 mt-1">Belum punya akun? <a href="">Daftar</a></p>
+                        <p class="mx-5 mt-1">Belum punya akun? <a href="{{url('/register')}}">Daftar</a></p>
                     </form>
                 </div>
             </div>

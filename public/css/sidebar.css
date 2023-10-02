@@ -56,11 +56,6 @@
     font-size: 17px;
     border: none;
 }
-#path{
-    color: red;
-}
-@media screen and (max-width : 500px) {
-    #name-sidebar{
-        font-size: 12px;
-    }
+.sidebar-menu .active{
+    color: yellow;
 }

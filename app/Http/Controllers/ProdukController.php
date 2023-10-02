@@ -45,20 +45,17 @@ class ProdukController extends Controller
         $path = $request->file('file')->store('foto_produk');
         $harga_beli = $request->harga_beli;
         $harga_jual = $harga_beli + ($harga_beli * 0.3);
-        Produk::create([
-            'nama_produk'=>$request->nama_produk,
-            'kategori_id'=>$request->kategori,
-            'harga_beli'=>$request->harga_beli,
-            'harga_jual'=>$harga_jual,
-            'stok'=>$request->stok,
-            'image'=>$path
-        ]);
-        return redirect('produk')->with('success','Produk berhasil ditambah');
-    }
 
-    public function show(string $id)
-    {
-        //
+        $produk = new Produk;
+        $produk->nama_produk = $request->nama_produk;
+        $produk->kategori_id = $request->kategori;
+        $produk->harga_beli = $request->harga_beli;
+        $produk->harga_jual = $harga_jual;
+        $produk->stok = $request->stok;
+        $produk->image = $path;
+        $produk->save();
+
+        return redirect('produk')->with('success','Produk berhasil ditambah');
     }
 
     public function edit(string $id)
@@ -78,24 +75,24 @@ class ProdukController extends Controller
             'stok'=>'required|numeric',
             'file' => 'file|mimes:jpeg,png|max:100',
         ]);
-        if ($request->hasFile('file')) {
-            if ($request->old_file) {
-                Storage::delete($request->old_file);
-            }
-            $path = $request->file('file')->store('foto_produk');
-        }else{
-            $path = $old_file;
+        
+        $path = $request->hasFile('file') ? $request->file('file')->store('foto_produk') : $old_file;
+        if ($request->hasFile('file') && $request->old_file) {
+            Storage::delete($request->old_file);
         }
+
         $harga_beli = $request->harga_beli;
         $harga_jual = $harga_beli + ($harga_beli * 0.3);
-        Produk::where('id',$id)->update([
-            'nama_produk'=>$request->nama_produk,
-            'kategori_id'=>$request->kategori,
-            'harga_beli'=>$request->harga_beli,
-            'harga_jual'=>$harga_jual,
-            'stok'=>$request->stok,
-            'image'=>$path
-        ]);
+
+        $produk = Produk::find($id);
+        $produk->nama_produk = $request->nama_produk;
+        $produk->kategori_id = $request->kategori;
+        $produk->harga_beli = $request->harga_beli;
+        $produk->harga_jual = $harga_jual;
+        $produk->stok = $request->stok;
+        $produk->image = $path;
+        $produk->save();
+
         return redirect('produk')->with('success','Data berhasil diperbarui');
     }
 
