@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\FilterExcelController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ProfileController;
@@ -33,7 +34,8 @@ Route::middleware(['auth'])->group(function (){
     Route::post('logout', [AuthController::class, 'logout']);
     Route::resource('produk', ProdukController::class);
     Route::resource('profile', ProfileController::class);  
-    Route::get('download', [ExportController::class, 'export']);
+    Route::get('download', [ExportController::class, 'export'])->name('export');
+    Route::get('excel', [FilterExcelController::class, 'index']);
 });
 
 Route::get('storage', function () {

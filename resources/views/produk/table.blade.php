@@ -18,7 +18,7 @@
             <td>{{$loop->iteration}}</td>
             {{-- <td><img src="{{asset('storage/'.$data->image)}}" alt="" srcset="" style="max-width: 30px" class=""></td> --}}
             <td>{{$data->nama_produk}}</td>
-            <td>{{$data->kategori_id}}</td>
+            <td>{{$data->kategori->nama_kategori}}</td>
             <td>{{$data->harga_beli}}</td>
             <td>{{$data->harga_jual}}</td>
             <td>{{$data->stok}}</td>

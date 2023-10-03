@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-1"></div>
             <div class="col-5">
-                <a href="{{url('download')}}" class="btn btn-success btn-sm"><i class="bi bi-filetype-xlsx"></i> Export excel</a>
+                <a href="{{url('setting-excel')}}" class="btn btn-success btn-sm"><i class="bi bi-filetype-xlsx"></i> Export excel</a>
             </div>
             <div class="col-6">
                 <a href="{{url('produk/create')}}" class="btn btn-danger btn-sm"><i class="bi bi-plus-circle"></i> Tambah data produk</a>
