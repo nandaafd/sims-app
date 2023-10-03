@@ -3,15 +3,14 @@
 namespace App\Exports;
 
 use App\Models\Produk;
-use Maatwebsite\Excel\Concerns\FromCollection;
-;
+use Maatwebsite\Excel\Concerns\FromView;
+use Illuminate\Contracts\View\View;
 
-class ExportProduk implements FromCollection
+class ExportProduk implements FromView
 {
-    public function collection()
+    public function view():View
     {
-        $data = Produk::paginate(10);
-
-        return $data;
+        $item = Produk::all();
+        return view('produk.table', ['item'=>$item]);   
     }
 }

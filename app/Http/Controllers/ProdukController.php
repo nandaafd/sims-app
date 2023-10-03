@@ -27,7 +27,10 @@ class ProdukController extends Controller
         $produk = $queryProduk->paginate(10);
         return view('produk.index', compact('kategori', 'produk'));
     }
-
+    public function data(){
+        $item = Produk::paginate(10);
+        return view('produk.table', compact('item'));
+    }
     public function create()
     {
         $kategori = Kategori::all();
