@@ -12,7 +12,7 @@
                         @csrf @method('post')
                         <div class="form-group has-icon-left mb-3">
                             <div class="position-relative">
-                                <input type="email" class="form-control mx-auto" placeholder="Masukkan email anda" id="input" name="email" >
+                                <input type="email" class="form-control mx-auto" value="{{old('email')}}" placeholder="Masukkan email anda" id="input" name="email" >
                                 <div class="form-control-icon">
                                     <i class="bi bi-person" id="icon"></i>
                                 </div>
@@ -26,6 +26,18 @@
                                 </div>
                             </div>
                         </div>
+                        @if(session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mx-auto" id="alert" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+                        @if(session('error'))
+                            <div class="alert alert-danger alert-dismissible fade show mx-auto" id="alert" role="alert">
+                                {{ session('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
                         <button type="submit" class="btn btn-danger mt-3" id="btn-login">Masuk</button>
                         <p class="mx-5 mt-1">Belum punya akun? <a href="{{url('/register')}}">Daftar</a></p>
                     </form>

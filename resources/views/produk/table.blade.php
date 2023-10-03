@@ -36,5 +36,5 @@
             @endforeach
         </tbody>
     </table>
-    {{-- {{$produk->links()}} --}}
+    {{$produk->links()}}
     @endisset 

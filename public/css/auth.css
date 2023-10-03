@@ -7,8 +7,7 @@ body{
     0%{opacity: 0;}
     100%{opacity: 1;}
 }
-#left{
-}
+
 h2 + p {
     font-family: 'Poppins','sans-serif';
 }
@@ -24,7 +23,9 @@ h1{
     border-radius: 4px;
     padding: 10px 0px 10px 35px;
 }
-
+#alert{
+    width: 80%;
+}
 #icon {
     position: absolute;
     top: 50%;

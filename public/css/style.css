@@ -33,3 +33,9 @@ h4{
 #avatar-card ul li{
     list-style-type: none;
 }
+#btn-filter, #btn-reset{
+    border: none;
+}
+.pagination {
+    font-size: 14px;
+}

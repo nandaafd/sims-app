@@ -19,17 +19,32 @@
                     </div>
                     <div class="col">
                         <label for="nama_produk" class="mb-2">Nama Produk</label>
-                        <input type="text" name="nama_produk" value="{{$data->nama_produk}}" class="form-control" id="" placeholder="Masukkan nama produk">
+                        <input type="text" name="nama_produk" value="{{$data->nama_produk}}" class="form-control @error('nama_produk') is-invalid @enderror" id="" placeholder="Masukkan nama produk">
+                        @error('nama_produk')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         <label for="harga_beli" class="mb-2">Harga Beli</label>
-                        <input type="text" name="harga_beli" value="{{$data->harga_beli}}" class="form-control" id="" placeholder="Masukkan harga beli">
+                        <input type="text" name="harga_beli" value="{{$data->harga_beli}}" class="form-control @error('harga_beli') is-invalid @enderror" id="" placeholder="Masukkan harga beli">
+                        @error('harga_beli')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="col">
                         <label for="stok" class="mb-2">Stok</label>
-                        <input type="text" name="stok" value="{{$data->stok}}" class="form-control" id="" placeholder="Masukkan stok produk">
+                        <input type="text" name="stok" value="{{$data->stok}}" class="form-control @error('stok') is-invalid @enderror" id="" placeholder="Masukkan stok produk">
+                        @error('stok')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div>
@@ -40,6 +55,11 @@
                     <i class="bi bi-cloud-arrow-up"></i>
                     <p id="drop-tittle">Drop file disini atau tekan untuk upload gambar baru</p>
                 </div>
+                @error('file')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
                 <input type="file" id="file-input" name="file" multiple hidden>
                 @endforeach
                 <div class="mt-3">

@@ -76,9 +76,13 @@ class ProdukController extends Controller
             'file' => 'file|mimes:jpeg,png|max:100',
         ]);
         
-        $path = $request->hasFile('file') ? $request->file('file')->store('foto_produk') : $old_file;
-        if ($request->hasFile('file') && $request->old_file) {
-            Storage::delete($request->old_file);
+        if ($request->hasFile('file')) {
+            if ($request->old_file) {
+                Storage::delete($request->old_file);
+            }
+            $path = $request->file('file')->store('foto_produk');
+        }else{
+            $path = $old_file;
         }
 
         $harga_beli = $request->harga_beli;
